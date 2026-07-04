@@ -1841,6 +1841,7 @@
                 if (type === 'education') url = `/educations/${id}`;
                 if (type === 'project') url = `/projects/${id}`;
                 if (type === 'skill') url = `/skills/${id}`;
+                if (type === 'certification') url = `/certifications/${id}`;
 
                 try {
                     const response = await fetch(url, {
