@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         $profile = Profile::create([
             'photo' => 'profile_photos/zhari.png',
             'full_name' => 'Muhammad Zhari Ramadhan',
-            'headline' => 'Multimedia Engineering Student | 3D Artist & Graphic Designer',
-            'short_description' => 'I am a Terapan Teknologi Rekayasa Multimedia student at Telkom University (Fakultas Ilmu Terapan, Angkatan 2023). I have a strong foundation in 3D modeling, graphic design, and digital art, with practical experience working as a 3D Artist and Graphic Designer at Wannabe Creative. I am passionate about pursuing a career in the Creative and Entertainment Industries.',
+            'headline' => 'Multimedia Engineering Student | Full Stack Developer, 3D Artist & Graphic Designer',
+            'short_description' => 'I am a Terapan Teknologi Rekayasa Multimedia student at Telkom University (Fakultas Ilmu Terapan, Angkatan 2023). I have a strong foundation in 3D modeling, graphic design, and full-stack web development, with practical experience working as a 3D Artist and Graphic Designer at Wannabe Creative. I am passionate about pursuing a career in the Creative Tech and Web Development Industries.',
             'email' => 'zhariramadhan@student.telkomuniversity.ac.id',
             'phone_number' => '081931268894',
             'location' => 'Kota Bandung, Jawa Barat, Indonesia',
