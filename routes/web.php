@@ -27,3 +27,6 @@ Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->nam
 
 // Skill AJAX CRUD
 Route::apiResource('skills', SkillController::class)->only(['store', 'update', 'destroy']);
+
+// Certification AJAX CRUD
+Route::apiResource('certifications', \App\Http\Controllers\CertificationController::class)->only(['store', 'update', 'destroy']);

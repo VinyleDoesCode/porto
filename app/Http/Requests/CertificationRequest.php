@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EducationRequest extends FormRequest
+class CertificationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,20 +22,15 @@ class EducationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'institution' => 'required|string|max:255',
-            'degree' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'sub_title' => 'required|string|max:255',
+            'issuer' => 'required|string|max:255',
+            'credential_url' => 'nullable|url|max:2048',
             'start_date' => 'required|date',
             'end_date' => 'nullable|date|after_or_equal:start_date',
             'description' => 'nullable|string',
-            'logo_text' => 'nullable|string|max:50',
-            'logo_bg' => 'nullable|string|max:50',
-            'gpa' => 'nullable|string|max:50',
-            'eprt' => 'nullable|string|max:50',
-            'tak' => 'nullable|string|max:50',
-            'final_grade' => 'nullable|string|max:50',
-            'nim' => 'nullable|string|max:50',
-            'angkatan' => 'nullable|string|max:50',
-            'dosen_wali' => 'nullable|string|max:255',
+            'skills' => 'nullable|array',
+            'skills.*' => 'string|max:255',
         ];
     }
 }

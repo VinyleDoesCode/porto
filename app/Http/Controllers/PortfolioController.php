@@ -10,7 +10,7 @@ class PortfolioController extends Controller
     public function index()
     {
         // Load the first profile along with all its relationships
-        $profile = Profile::with(['experiences', 'educations', 'projects', 'skills'])->first();
+        $profile = Profile::with(['experiences', 'educations', 'projects', 'skills', 'certifications'])->first();
 
         // If no profile exists yet (e.g. before seeding), create a blank one
         if (!$profile) {
@@ -20,7 +20,7 @@ class PortfolioController extends Controller
                 'short_description' => 'Welcome to my portfolio website.',
                 'email' => 'alex@example.com',
             ]);
-            $profile->load(['experiences', 'educations', 'projects', 'skills']);
+            $profile->load(['experiences', 'educations', 'projects', 'skills', 'certifications']);
         }
 
         return view('portfolio', compact('profile'));

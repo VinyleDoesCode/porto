@@ -19,6 +19,18 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable(); // Null indicates "Present"
             $table->text('description')->nullable();
+            
+            // New columns for score stats and details
+            $table->string('logo_text')->nullable();
+            $table->string('logo_bg')->nullable();
+            $table->string('gpa')->nullable();
+            $table->string('eprt')->nullable();
+            $table->string('tak')->nullable();
+            $table->string('final_grade')->nullable();
+            $table->string('nim')->nullable();
+            $table->string('angkatan')->nullable();
+            $table->string('dosen_wali')->nullable();
+
             $table->timestamps();
         });
     }

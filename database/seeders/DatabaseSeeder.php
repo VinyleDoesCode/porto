@@ -58,32 +58,34 @@ class DatabaseSeeder extends Seeder
             'description' => 'Collaborated on campus multimedia events, developing digital graphics, promotional videos, and interactive asset models.',
         ]);
 
-        // 3. Seed 3 Education records
+        // 3. Seed 2 Education records
         Education::create([
             'profile_id' => $profile->id,
             'institution' => 'Telkom University',
-            'degree' => 'Terapan Teknologi Rekayasa Multimedia (Fakultas Ilmu Terapan)',
-            'start_date' => '2023-08-01',
+            'degree' => 'Applied Bachelor\'s Degree (D4) - Multimedia Engineering Technology',
+            'start_date' => '2023-07-01',
             'end_date' => null, // Present
-            'description' => "NIM: 707082330124. Angkatan: 2023.\nIPK: 3.50. EPRT: 520. TAK: 73.\nDosen Wali: MEY | Mindit Eriyadi, S.Pd., M.T.",
+            'logo_text' => 'Tel-U',
+            'logo_bg' => 'bg-red-600',
+            'gpa' => '3.50',
+            'eprt' => '520',
+            'tak' => '73',
+            'nim' => '707082330124',
+            'angkatan' => '2023',
+            'dosen_wali' => 'MEY | Mindit Eriyadi, S.Pd., M.T.',
+            'description' => null,
         ]);
 
         Education::create([
             'profile_id' => $profile->id,
-            'institution' => 'Fakultas Ilmu Terapan (FIT) Telkom',
-            'degree' => 'Academic Training & Seminars',
-            'start_date' => '2023-09-01',
-            'end_date' => '2023-12-15',
-            'description' => 'Participated in core university seminars focusing on multimedia workflow, asset optimization, and game design concepts.',
-        ]);
-
-        Education::create([
-            'profile_id' => $profile->id,
-            'institution' => 'Multimedia Design Certification',
-            'degree' => 'Vocational Certification',
-            'start_date' => '2022-07-01',
-            'end_date' => '2022-12-10',
-            'description' => 'Self-paced and group coursework on digital illustration, color theory, graphic styling, and vector design templates.',
+            'institution' => 'SMA Negeri 12 Bandung',
+            'degree' => 'High School - MIPA Science Major',
+            'start_date' => '2020-07-01',
+            'end_date' => '2023-05-31',
+            'logo_text' => 'HS',
+            'logo_bg' => 'bg-blue-600',
+            'final_grade' => '89.81',
+            'description' => null,
         ]);
 
         // 4. Seed 5 Projects
@@ -153,61 +155,176 @@ class DatabaseSeeder extends Seeder
             'category' => 'Full Stack Dev',
         ]);
 
-        // 5. Seed 8 Skills
+        // 5. Seed Skills
+        // Category: Web
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'PHP',
+            'level' => 'Expert',
+            'category' => 'Web',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'Laravel',
+            'level' => 'Expert',
+            'category' => 'Web',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'HTML',
+            'level' => 'Expert',
+            'category' => 'Web',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'CSS',
+            'level' => 'Expert',
+            'category' => 'Web',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'JS',
+            'level' => 'Advanced',
+            'category' => 'Web',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'MySQL',
+            'level' => 'Advanced',
+            'category' => 'Web',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'PostgreSQL',
+            'level' => 'Intermediate',
+            'category' => 'Web',
+        ]);
+
+        // Category: Graphic Design
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'Photoshop',
+            'level' => 'Expert',
+            'category' => 'Graphic Design',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'Illustrator',
+            'level' => 'Advanced',
+            'category' => 'Graphic Design',
+        ]);
+
         Skill::create([
             'profile_id' => $profile->id,
             'skill_name' => 'Figma',
             'level' => 'Advanced',
-            'category' => 'Frontend',
+            'category' => 'Graphic Design',
         ]);
 
         Skill::create([
             'profile_id' => $profile->id,
-            'skill_name' => 'Teamwork',
+            'skill_name' => 'Canva',
             'level' => 'Expert',
-            'category' => 'Tools',
+            'category' => 'Graphic Design',
         ]);
 
+        // Category: 3D Design
         Skill::create([
             'profile_id' => $profile->id,
             'skill_name' => 'Blender',
-            'level' => 'Advanced',
-            'category' => 'Tools',
+            'level' => 'Expert',
+            'category' => '3D Design',
         ]);
 
         Skill::create([
             'profile_id' => $profile->id,
             'skill_name' => '3D Modeling',
-            'level' => 'Advanced',
-            'category' => 'Tools',
-        ]);
-
-        Skill::create([
-            'profile_id' => $profile->id,
-            'skill_name' => 'Graphic Design',
             'level' => 'Expert',
-            'category' => 'Tools',
+            'category' => '3D Design',
         ]);
 
         Skill::create([
             'profile_id' => $profile->id,
-            'skill_name' => 'Photoshop',
+            'skill_name' => 'Texturing',
             'level' => 'Advanced',
-            'category' => 'Tools',
+            'category' => '3D Design',
         ]);
 
         Skill::create([
             'profile_id' => $profile->id,
-            'skill_name' => 'Bahasa Indonesia',
+            'skill_name' => 'Rendering',
+            'level' => 'Advanced',
+            'category' => '3D Design',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'Lighting',
+            'level' => 'Advanced',
+            'category' => '3D Design',
+        ]);
+
+        // Category: Supporting Tools
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'Antigravity',
             'level' => 'Expert',
-            'category' => 'Tools',
+            'category' => 'Supporting Tools',
         ]);
 
         Skill::create([
             'profile_id' => $profile->id,
-            'skill_name' => 'English',
-            'level' => 'Intermediate',
-            'category' => 'Tools',
+            'skill_name' => 'ChatGPT',
+            'level' => 'Expert',
+            'category' => 'Supporting Tools',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'Git',
+            'level' => 'Advanced',
+            'category' => 'Supporting Tools',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'GitHub',
+            'level' => 'Advanced',
+            'category' => 'Supporting Tools',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'MS Excel',
+            'level' => 'Advanced',
+            'category' => 'Supporting Tools',
+        ]);
+
+        Skill::create([
+            'profile_id' => $profile->id,
+            'skill_name' => 'MS Word',
+            'level' => 'Expert',
+            'category' => 'Supporting Tools',
+        ]);
+
+        // 6. Seed Certification
+        \App\Models\Certification::create([
+            'profile_id' => $profile->id,
+            'title' => 'BNSP Competency Certificate',
+            'sub_title' => 'Desainer Multimedia Madya (Intermediate Multimedia Designer)',
+            'issuer' => 'Badan Nasional Sertifikasi Profesi (BNSP)',
+            'credential_url' => 'https://drive.google.com/file/d/11OCr18K9YLq2We10LD4Kom_CxLJMcswt/view?usp=sharing',
+            'start_date' => '2025-07-01',
+            'end_date' => '2028-07-01',
+            'description' => 'This national certification officially validates proficiency in multimedia asset production, graphic editing workflows, audio-visual storytelling scripts, and operational software usage according to formal industrial frameworks.',
+            'skills' => ['Creative Research & Design', 'Audio-Visual Production', 'Interactive Programming'],
         ]);
     }
 }

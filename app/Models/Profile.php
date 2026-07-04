@@ -39,4 +39,9 @@ class Profile extends Model
     {
         return $this->hasMany(Skill::class);
     }
+
+    public function certifications(): HasMany
+    {
+        return $this->hasMany(Certification::class)->orderBy('start_date', 'desc');
+    }
 }

@@ -5,31 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Education extends Model
+class Certification extends Model
 {
-    protected $table = 'educations';
+    protected $table = 'certifications';
 
     protected $fillable = [
         'profile_id',
-        'institution',
-        'degree',
+        'title',
+        'sub_title',
+        'issuer',
+        'credential_url',
         'start_date',
         'end_date',
         'description',
-        'logo_text',
-        'logo_bg',
-        'gpa',
-        'eprt',
-        'tak',
-        'final_grade',
-        'nim',
-        'angkatan',
-        'dosen_wali',
+        'skills',
     ];
 
     protected $casts = [
         'start_date' => 'date',
         'end_date' => 'date',
+        'skills' => 'array',
     ];
 
     public function profile(): BelongsTo
