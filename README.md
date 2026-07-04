@@ -15,14 +15,14 @@ This project is a complete Full Stack Personal Portfolio Website designed and bu
 
 ## Main Features
 
-1.  **Dynamic Database Content:** All sections (About, Experience, Education, Projects, Skills, Contact) draw data directly from MySQL. No content is hardcoded in Blade views.
+1.  **Dynamic Database Content:** All sections (About, Experience, Education, Projects, Skills, Contact, Certifications) draw data directly from MySQL. No content is hardcoded in Blade views.
 2.  **Interactive Modes:**
     *   **View Mode:** A clean, professional, responsive, and minimalist dark portfolio.
     *   **Edit Mode:** Instantly toggles edit overlays. Allows adding, editing, and deleting records in-place without page transitions or redirects.
 3.  **AJAX CRUD Operations:** High-performance AJAX endpoints implemented using standard Laravel Controllers returning JSON, integrated with client-side Alpine.js Fetch handlers.
 4.  **Laravel Form Request Validation:** Complete backend input schema validation with real-time error displaying inside interactive modals.
 5.  **Image Upload Pipeline:** Seamless profile photo and project thumbnail uploads stored dynamically using Laravel Storage and displayed immediately on the interface.
-6.  **Realistic Data Seeding:** A unified DatabaseSeeder populated with realistic developer profiles, work experience timelines, education records, project cards, and categorized skills.
+6.  **Realistic Data Seeding:** A unified DatabaseSeeder populated with realistic developer profiles, work experience timelines, education records, project cards, professional credentials, and categorized skills.
 
 ---
 
@@ -36,7 +36,7 @@ Navigate to the project root directory and run:
 composer install
 ```
 
-### 2. Configure Environment Environment Variables
+### 2. Configure Environment Variables
 Copy `.env.example` to `.env`:
 ```bash
 cp .env.example .env
@@ -86,6 +86,7 @@ erDiagram
     profiles ||--o{ educations : hasMany
     profiles ||--o{ projects : hasMany
     profiles ||--o{ skills : hasMany
+    profiles ||--o{ certifications : hasMany
 
     profiles {
         bigint id PK
@@ -121,6 +122,15 @@ erDiagram
         date start_date
         date end_date
         text description
+        string logo_text
+        string logo_bg
+        string gpa
+        string eprt
+        string tak
+        string final_grade
+        string nim
+        string angkatan
+        string dosen_wali
         timestamps timestamps
     }
 
@@ -132,7 +142,8 @@ erDiagram
         string thumbnail
         string project_url
         string github_url
-        text tech_stack
+        json tech_stack
+        string category
         timestamps timestamps
     }
 
@@ -142,6 +153,20 @@ erDiagram
         string skill_name
         string level
         string category
+        timestamps timestamps
+    }
+
+    certifications {
+        bigint id PK
+        bigint profile_id FK
+        string title
+        string sub_title
+        string issuer
+        date start_date
+        date end_date
+        string credential_url
+        text description
+        json skills
         timestamps timestamps
     }
 ```
@@ -159,14 +184,16 @@ The code is organized according to standard Laravel architecture conventions:
     *   [EducationController.php](file:///app/Http/Controllers/EducationController.php) - JSON API CRUD responses for education.
     *   [ProjectController.php](file:///app/Http/Controllers/ProjectController.php) - JSON API CRUD responses for projects and file uploads.
     *   [SkillController.php](file:///app/Http/Controllers/SkillController.php) - JSON API CRUD responses for skills.
+    *   [CertificationController.php](file:///app/Http/Controllers/CertificationController.php) - JSON API CRUD responses for certifications.
 *   `app/Http/Requests/`:
     *   [ProfileRequest.php](file:///app/Http/Requests/ProfileRequest.php) - Validation rules for profile information.
     *   [ExperienceRequest.php](file:///app/Http/Requests/ExperienceRequest.php) - Validation rules for work experience.
     *   [EducationRequest.php](file:///app/Http/Requests/EducationRequest.php) - Validation for academic credentials.
     *   [ProjectRequest.php](file:///app/Http/Requests/ProjectRequest.php) - Validation rules for projects.
     *   [SkillRequest.php](file:///app/Http/Requests/SkillRequest.php) - Validation rules for technical skills.
+    *   [CertificationRequest.php](file:///app/Http/Requests/CertificationRequest.php) - Validation rules for professional credentials.
 *   `app/Models/`:
-    *   [Profile.php](file:///app/Models/Profile.php), [Experience.php](file:///app/Models/Experience.php), [Education.php](file:///app/Models/Education.php), [Project.php](file:///app/Models/Project.php), [Skill.php](file:///app/Models/Skill.php)
+    *   [Profile.php](file:///app/Models/Profile.php), [Experience.php](file:///app/Models/Experience.php), [Education.php](file:///app/Models/Education.php), [Project.php](file:///app/Models/Project.php), [Skill.php](file:///app/Models/Skill.php), [Certification.php](file:///app/Models/Certification.php)
 *   `database/migrations/`:
     *   Schema definitions mapping primary keys, foreign key constraints (cascading deletes), data types, and timestamps.
 *   `database/seeders/`:
@@ -175,6 +202,7 @@ The code is organized according to standard Laravel architecture conventions:
     *   [layouts/app.blade.php](file:///resources/views/layouts/app.blade.php) - Base HTML layout structure containing tailwind configs, CDNs, and headers.
     *   [portfolio.blade.php](file:///resources/views/portfolio.blade.php) - Unified landing template rendering segments, toggle state, and Alpine.js controllers.
 *   `routes/web.php` - Map of landing view, update, store, and delete endpoints.
+
 
 ---
 
